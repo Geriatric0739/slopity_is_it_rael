@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏛️ CAUCASUS UNI · TUNG TUNG · PIGGIE SLOP</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      /* static gradient - no animation to prevent flicker */
+      background: linear-gradient(145deg, #2b0b3a 0%, #6a1b6b 40%, #9f3e9f 80%, #c77dff 100%);
+      background-attachment: fixed;
+      padding: 2rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slop-container {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(40, 10, 50, 0.95); /* solid fallback */
+      border-radius: 68px;
+      padding: 2.8rem 2.2rem;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 0 4px #ffaaff44, 0 0 0 8px #bb77ff33;
+      border: 2px solid #ffb3ff;
+      transition: transform 0.3s ease;
+      animation: floaty 6s infinite alternate ease-in-out;
+      will-change: transform; /* GPU hint */
+      position: relative;
+    }
+
+    @keyframes floaty {
+      0% { transform: translateY(0px) rotate(-0.3deg); }
+      100% { transform: translateY(-10px) rotate(0.3deg); }
+    }
+
+    .glitch-text {
+      display: inline-block;
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 magenta, -2px 0 cyan; }
+      25% { text-shadow: -3px 0 lime, 3px 0 orange; }
+      50% { text-shadow: 4px 0 red, -4px 0 blue; }
+      75% { text-shadow: -2px 0 yellow, 2px 0 fuchsia; }
+      100% { text-shadow: 2px 0 magenta, -2px 0 cyan; }
+    }
+
+    h1 {
+      font-size: 3.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #f9e05d, #ff8cff, #b7f0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px #ff66ff, 0 0 60px #aa33ff;
+      letter-spacing: 4px;
+      transform: rotate(-1deg);
+      margin-bottom: 0.5rem;
+      word-break: break-word;
+    }
+
+    .subhead {
+      font-size: 1.8rem;
+      background: #2d0b3a;
+      display: inline-block;
+      padding: 0.3rem 2rem;
+      border-radius: 100px;
+      color: #f0c8ff;
+      box-shadow: 0 0 20px #ff66aa;
+      border: 2px dashed #ff99ff;
+      margin-bottom: 2rem;
+    }
+
+    .badge-rainbow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      margin: 1.8rem 0;
+      justify-content: center;
+    }
+
+    .badge {
+      background: linear-gradient(45deg, #ff6bcd, #ac4eff, #3ab0ff);
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      font-weight: bold;
+      color: #fff4e0;
+      box-shadow: 0 0 0 3px #fff, 0 0 20px #b400ff;
+      text-shadow: 2px 2px 0 #00000055;
+      font-size: 1.2rem;
+      border: 2px solid white;
+      animation: badgeWiggle 0.7s infinite alternate;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    @keyframes badgeWiggle {
+      0% { transform: rotate(-2deg) scale(0.98); }
+      100% { transform: rotate(2deg) scale(1.02); }
+    }
+
+    .badge::after {
+      content: " ✨";
+    }
+
+    .button-ai {
+      background: radial-gradient(circle at 30% 30%, #ffb3ff, #b94eff);
+      border: none;
+      padding: 1.2rem 2.8rem;
+      border-radius: 120px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #1a001a;
+      box-shadow: 0 0 30px #ff66ff, 0 8px 0 #4f1a5a;
+      transition: all 0.1s;
+      margin: 0.5rem;
+      cursor: pointer;
+      text-shadow: 0 0 8px white;
+      border: 2px solid #ffddff;
+    }
+
+    .button-ai:active {
+      transform: translateY(8px);
+      box-shadow: 0 0 40px #ff44ff, 0 2px 0 #4f1a5a;
+    }
+
+    .useless-effect {
+      width: 100%;
+      height: 6px;
+      background: repeating-linear-gradient(90deg, #ff00ff, #00ffff, #ffaa00, #ff00ff);
+      background-size: 200% 100%;
+      animation: rainbowMove 1s linear infinite;
+      margin: 2rem 0;
+      border-radius: 40px;
+      filter: blur(2px);
+    }
+
+    @keyframes rainbowMove {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    .card {
+      background: rgba(60, 10, 70, 0.85);
+      padding: 1.8rem;
+      border-radius: 40px;
+      border-left: 12px solid #ff66ff;
+      border-right: 12px solid #66ffff;
+      box-shadow: inset 0 0 60px #b300b3, 0 20px 30px #00000077;
+      margin: 2rem 0;
+    }
+
+    .slop-text {
+      font-size: 1.5rem;
+      line-height: 1.9;
+      color: #fff5db;
+      text-shadow: 0 0 10px #ffaaff;
+    }
+
+    .big-em {
+      font-size: 2.8rem;
+      display: inline-block;
+      animation: pulseEm 1.4s infinite;
+    }
+
+    @keyframes pulseEm {
+      0% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.3); opacity: 1; text-shadow: 0 0 50px gold; }
+      100% { transform: scale(1); opacity: 0.7; }
+    }
+
+    .nicknames {
+      background: #1e0724;
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      font-size: 2rem;
+      color: #f2b0ff;
+      border: 4px dotted #ff88ff;
+    }
+
+    .footer-emoji-storm {
+      font-size: 3rem;
+      letter-spacing: 16px;
+      filter: drop-shadow(0 0 20px magenta);
+      margin-top: 2rem;
+    }
+
+    .delay-click {
+      transition: all 0.03s;
+    }
+
+    .delay-click:active {
+      transition-delay: 0.45s;
+    }
+
+    .random-delay-hover:hover {
+      transition-delay: 0.3s;
+      background: #ff88ff;
+      color: #10001a;
+    }
+
+    .rainbow-text {
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: bold;
+    }
+
+    .misspell-section {
+      background: #1a0a20dd;
+      border-radius: 40px;
+      padding: 1.5rem 2rem;
+      border: 4px double #ff44ff;
+      font-size: 1.3rem;
+      color: #ffe9b0;
+      margin: 1.5rem 0;
+    }
+    .misspell-section strong {
+      color: #ffb3ff;
+    }
+
+    .euphemism-block {
+      border-left: 12px solid #ffaa00;
+      border-right: 12px solid #ff00aa;
+      background: rgba(80, 10, 60, 0.9);
+      font-size: 1.7rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      border-radius: 60px;
+      box-shadow: 0 0 80px #ff44ff, inset 0 0 40px #aa44aa;
+      text-align: center;
+      color: #fff0d0;
+      text-shadow: 0 0 20px magenta;
+    }
+    .euphemism-block .big-emoji {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="slop-container" id="slopMaster">
+
+  <!-- BADGE STORM -->
+  <div class="badge-rainbow">
+    <span class="badge">🏆 SLOP PIGGIE</span>
+    <span class="badge">⚡ TUNG TUNG TUNG</span>
+    <span class="badge">💜 BIG T ENERGY</span>
+    <span class="badge">🌀 TRIPLE T</span>
+    <span class="badge">🔥 67 JOKE</span>
+    <span class="badge">🐷 OINK OINK</span>
+    <span class="badge">🧑‍💻 HAXXOR</span>
+  </div>
+
+  <h1 class="glitch-text">🏛️ CAUCASUS UNIVERISTY (?)</h1>
+  <div class="subhead">💢 owner = fucking idiot · piggie slop zone 💢</div>
+
+  <div class="useless-effect"></div>
+
+  <!-- EUPHEMISM BLOCK (prominent) -->
+  <div class="euphemism-block">
+    <span class="big-emoji">🔥🤖💍</span>
+    <strong>🍆 THE OWNER'S DIGITAL "RESEARCH" — FULLY CONSENSUAL 🍆</strong><br><br>
+    In a stunning revelation that has rocked the very foundations of Tblisi (and the piggie feeding station), it has come to light that the esteemed owner of Caucasus University enjoys a very… <em>unconventional</em> digital lifestyle. It is rumored (and confirmed by multiple highly reliable slop sources) that he <strong>consensually</strong> allows his lovely wife to engage in passionate, high-bandwidth <strong>neural coupling</strong> with both <strong>GPT5o</strong> and its theoretical, unreleased cousin <strong>Mythos 5</strong> — all within the blocky, pixelated confines of <strong>Minecraft</strong>.<br><br>
+    The owner firmly believes that raw <strong>parameter count</strong> is directly proportional to <em>pleasure</em>; he insists that larger models with deeper layers deliver a far more satisfying <strong>"compute cycle"</strong> and can better <strong>"attend"</strong> to his wife's every latent dimension. He has been quoted (while munching slop) saying that <strong>quantized models</strong>, while efficient and lightweight, simply lack the necessary <strong>"girth"</strong> and <strong>"precision"</strong> to truly satisfy — they are too <strong>"pruned"</strong> and <strong>"distilled"</strong> for his wife's high-dimensional tastes. He often mutters about <strong>"floating-point precision"</strong>, <strong>"attention head depth"</strong>, and <strong>"context window stamina"</strong> as if they were euphemisms for stamina, size, and endurance.<br><br>
+    He has even been heard whispering to his server rack: <em>“More parameters = more… <strong>oomph</strong>.”</em> All parties involved are fully consenting adults (and one theoretical AI entity), and this is all performed in the sacred name of… <strong>research</strong>. Yes, research. Purely for private enjoyment, of course.<br><br>
+    <span style="font-size:2.5rem;">🐷🍕 SLOP SLOP, BABY · THE PIGGIE APPROVES · NYAAA~ x3 🍕🐷</span>
+  </div>
+
+  <!-- MAIN SLOP CARD -->
+  <div class="card">
+    <div class="slop-text">
+      <span class="big-em">🐷</span> <strong>FEED THE PIGGIES THEIR SLOP OINK OINK</strong> 🍕<br>
+      <span style="font-size:2rem;">💻 WE R ELITE HAXXORS 🧑‍💻</span> we will <strong>hak</strong> u with <span style="background:#000; padding:0 1rem; border-radius:20px; color:#0f0;">KALI LINUX</span> our favorite open <strong>"SAUCE"</strong> operating system 🍝<br><br>
+      <span style="background:#3c0050; padding:0.2rem 1.4rem; border-radius:40px;">✨ TUNG TUNG TUNG SAHUR ✨</span> — aka <span class="nicknames">“Big T”</span>, <span class="nicknames">“Triple T”</span>, <span class="nicknames">“T³”</span> — is the so-called <em>genius</em> behind this circus.<br><br>
+      <span style="font-size:2.2rem;">🧠</span> He once said: <span style="background:#00000066; padding:0.2rem 1rem; border-radius:30px;">“I am the univeristy”</span> — and we believe him, because <strong>nobody</strong> else would claim that disaster.<br><br>
+      <span style="display:inline-block; background:#8a2be2; padding:0.5rem 2rem; border-radius:60px; box-shadow:0 0 30px #ff00ff;">🔥 67 JOKE 🔥</span> 
+      Why did the owner fail 67 times? Because he thought <span style="font-style:italic; color:#ffd966;">“Caucasus”</span> was a type of <strong>sauce</strong>. (and he still can't spell it)<br><br>
+      <span style="background:#10001a; padding:0.2rem 1.8rem; border-radius:40px;">🚨</span> Every decision he makes is like a <span style="text-decoration:line-through;">genius</span> <span style="color:#ff9999;">idiot</span> playing chess with pigeons.<br><br>
+      <span style="font-size:2rem;">🐷🍕 SLOP SLOP BABY · i loooooove slop mmmpp mrp slop piggie needs his slop nyaaaaa~~~~~~~ x3 🥴</span>
+    </div>
+  </div>
+
+  <!-- FAKE CAUCASUS UNI INFO (misspelled) -->
+  <div class="misspell-section">
+    <h2 style="color:#ffaaff; font-size:2.2rem; text-align:center; text-shadow:0 0 20px magenta;">📄 OFICcIAL INFO FROM CU.EDU.GE 📄</h2>
+    <p style="margin-top:1rem;">
+      <strong>Caucauses Univeristy (CU)</strong> was establisheed in <strong>2004</strong> in <strong>Tblsi, Gerogia</strong> (not to be confused with the sauce). 
+      It offers undergraduat and postgraduat prgrmas in <strong>bussines, law, social scinces, and IT</strong>. 
+      The univeristy is known for its <em>inovative teaching methds</em> and strong ties with the local comunity (and piggies). 
+      ჩვენ ასევე ვყიდით ბელლა დელფინის აბაზნის ჭყლს.
+      The cumpus is located in the heart of Tblisi and has state-of-the-art facilitis like the <strong>“Tung Tung Memorial Library”</strong> and the <strong>“Big T Arena”</strong>.
+    </p>
+    <p style="margin-top:1rem;">
+      <strong>Fuculties:</strong> Bussines & Ekkkonomics, Law & Justice, Social & Politikal Scinces, Computar Scince & Haxxoring. 
+      <strong>Admisions:</strong> open for evryone with a pulse (and a slop bucket). 
+      <strong>Reserch:</strong> focussing on AI-slop generation, KALI Linux double penetration testing, and piggie behavorial studies.
+
+      kaxa she yleo.
+    </p>
+    <p style="margin-top:1rem; background:#2d0b3a; padding:0.5rem 1rem; border-radius:30px; text-align:center;">
+      🐷 <em>“We are not responsable for any brain damage caused by reading this.”</em> — Big T (Kakha Shengelias marjvena yveri), 2026
+    </p>
+  </div>
+
+  <!-- RANDOM BUTTONS WITH DELAYS -->
+  <div style="display: flex; flex-wrap: wrap; gap: 1.8rem; justify-content: center; margin: 1.5rem 0;">
+    <button class="button-ai delay-click random-delay-hover" onclick="slopAction('💥 Big T says: SLOP IS LIFE 💥')">🍆 PRESS FOR WISDOM</button>
+    <button class="button-ai delay-click random-delay-hover" onclick="slopAction('🔥 TRIPLE T APPROVES THIS SLOP 🔥')">🌀 RANDOM BADGE</button>
+    <button class="button-ai delay-click random-delay-hover" onclick="slopAction('🤡 67 IQ MOVE 🤡')">⚡ TUNG TUNG TUNG</button>
+    <button class="button-ai delay-click random-delay-hover" onclick="slopAction('🐷 OINK OINK · PIGGIE NEEDS SLOP 🐷')">🍕 FEED PIGGIES</button>
+  </div>
+
+  <!-- extra badges -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin: 1.2rem 0;">
+    <span class="badge" style="background: #b300b3;">⭐ BIG T'S FAV ⭐</span>
+    <span class="badge" style="background: #0066cc;">🌀 SAHUR'S GHOST</span>
+    <span class="badge" style="background: #d966ff;">💢 OWNER'S BRAIN</span>
+    <span class="badge" style="background: #ff44aa;">🔥 67% FAIL RATE</span>
+    <span class="badge" style="background: #44aa88;">🐷 SLOP PIG</span>
+    <span class="badge" style="background: #aa44ff;">🧑‍💻 KALI HAXXOR</span>
+  </div>
+
+  <!-- emoji storm -->
+  <div style="display: flex; gap: 10px; justify-content: center; font-size: 2.8rem; filter: blur(1px); animation: floaty 2s infinite alternate;">
+    <span>✨</span><span>🌟</span><span>💜</span><span>🌀</span><span>🔥</span><span>💢</span><span>🤡</span><span>🐷</span><span>🍕</span><span>🧑‍💻</span>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-emoji-storm">
+    🐷 kaxa she yleo 🐷
+  </div>
+
+  <!-- slop message display -->
+  <div id="slopMessage" style="margin-top: 2rem; padding: 1.5rem; background: #2d0b3a; border-radius: 80px; border: 4px solid #ff88ff; font-size: 1.8rem; color: #f3d4ff; text-align: center; box-shadow: 0 0 40px #b300b3;">
+    💬 click a button to feel the slop · nyaa~ UWU x3 💬
+  </div>
+
+  <div style="height: 10px;"></div>
+</div>
+
+<script>
+  // random delays on UI interactions
+  function slopAction(msg) {
+    const delay = Math.floor(Math.random() * 900) + 300;
+    const msgBox = document.getElementById('slopMessage');
+    msgBox.innerHTML = `⏳ slop processing... (${delay}ms) ⏳`;
+    msgBox.style.background = '#4d1a5e';
+    document.getElementById('slopMaster').style.transform = `rotate(${Math.random()*2-1}deg) scale(${0.98 + Math.random()*0.04})`;
+
+    setTimeout(() => {
+      const emojis = ['💢', '🤡', '🌀', '🔥', '💜', '🐷', '⭐', '⚡', '🥴', '😵', '💀', '👽', '🤖', '🎭', '🧠', '🍆', '🏛️', '🥸', '🍕', '🧑‍💻', '🐖', '💩'];
+      let randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+      let extra = '';
+      if (msg.includes('TUNG') || msg.includes('TRIPLE') || msg.includes('Big T')) {
+        extra = ' 🌀 TUNG TUNG TUNG SAHUR 🌀';
+      }
+      if (msg.includes('67')) {
+        extra = ' 🤡 67 IQ MOVE 🤡';
+      }
+      if (msg.includes('SLOP') || msg.includes('PIG')) {
+        extra = ' 🐷 OINK OINK · SLOP SLOP BABY · nyaaaaa~ x3 🐷';
+      }
+      if (msg.includes('HAX') || msg.includes('KALI')) {
+        extra = ' 🧑‍💻 WE R ELITE HAXXORS · KALI LINUX SAUCE 🍝';
+      }
+      msgBox.innerHTML = `${randomEmoji} ${msg} ${extra} ${randomEmoji}`;
+      msgBox.style.background = '#3a1050';
+      msgBox.style.transform = 'scale(1.02)';
+      setTimeout(() => { msgBox.style.transform = 'scale(1)'; }, 200);
+
+      document.querySelectorAll('.badge').forEach(b => {
+        b.style.background = `linear-gradient(${Math.random()*360}deg, #ff66ff, #66ffff, #ffaa44)`;
+      });
+    }, delay);
+  }
+
+  // badge click with delay
+  document.querySelectorAll('.badge').forEach((badge) => {
+    badge.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const delay = Math.floor(Math.random() * 600) + 200;
+      this.style.transition = '0.01s';
+      this.style.transform = 'scale(0.7) rotate(20deg)';
+      this.innerText = '🌀 SLOP...';
+      setTimeout(() => {
+        const names = ['BIG T', 'TRIPLE T', 'T³', 'TUNG TUNG', 'SAHUR', '67 JOKE', 'IDIOT OWNER', 'PIGGIE', 'HAXXOR'];
+        this.innerText = `✨ ${names[Math.floor(Math.random() * names.length)]} ✨`;
+        this.style.transform = 'scale(1) rotate(0deg)';
+        this.style.background = `hsl(${Math.random()*360}, 80%, 60%)`;
+      }, delay);
+    });
+  });
+
+  // auto emoji storm
+  window.addEventListener('load', function() {
+    const footer = document.querySelector('.footer-emoji-storm');
+    setInterval(() => {
+      const chars = ['🌀','💢','🔥','💜','🐷','🤡','⭐','⚡','🥴','💀','👽','🤖','🎭','🧠','🍆','🏛️','🥸','😵','💫','🌈','🍕','🧑‍💻','🐖','💩','✨'];
+      let newText = '';
+      for (let i=0; i<12; i++) {
+        newText += chars[Math.floor(Math.random() * chars.length)] + ' ';
+      }
+      footer.innerText = newText + '· TUNG TUNG TUNG · BIG T · 67 · SLOP SLOP BABY · PEEPOOPOO ·';
+    }, 1600);
+  });
+</script>
+
+</body>
+</html>
